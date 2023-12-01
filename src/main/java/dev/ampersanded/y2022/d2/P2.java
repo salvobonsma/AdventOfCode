@@ -6,12 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class P2 extends AdventChallenge {
-    enum Outcome {
-        LOSS,
-        DRAW,
-        WIN
-    }
-
     @Override
     public String solve() {
         List<String> matches = Arrays.stream(input.split("\n")).toList();
@@ -76,5 +70,11 @@ public class P2 extends AdventChallenge {
             case "Z" -> 3;
             default -> throw new IllegalStateException("Unexpected value: " + s);
         };
+    }
+
+    enum Outcome {
+        LOSS,
+        DRAW,
+        WIN
     }
 }

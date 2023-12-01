@@ -1,7 +1,6 @@
 package dev.ampersanded.y2023.d1;
 
 import dev.ampersanded.lib.AdventChallenge;
-import dev.ampersanded.lib.Utils;
 
 public class P1 extends AdventChallenge {
     @Override

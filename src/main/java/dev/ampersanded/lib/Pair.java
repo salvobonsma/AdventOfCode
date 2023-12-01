@@ -9,16 +9,16 @@ public class Pair<A, B> {
         m_second = second;
     }
 
+    public static <A, B> Pair<A, B> of(A a, B b) {
+        return new Pair<>(a, b);
+    }
+
     public A getFirst() {
         return m_first;
     }
 
     public B getSecond() {
         return m_second;
-    }
-
-    public static <A, B> Pair<A, B> of(A a, B b) {
-        return new Pair<>(a, b);
     }
 
     @Override

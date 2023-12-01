@@ -2,11 +2,8 @@ package dev.ampersanded.y2022.d4;
 
 import dev.ampersanded.lib.AdventChallenge;
 import dev.ampersanded.lib.Pair;
-import dev.ampersanded.lib.Utils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class P2 extends AdventChallenge {
     @Override
@@ -28,7 +25,9 @@ public class P2 extends AdventChallenge {
     private boolean overlaps(Pair<Integer, Integer> a, Pair<Integer, Integer> b) {
         for (int i = a.getFirst(); i <= a.getSecond(); i++) {
             for (int i2 = b.getFirst(); i2 <= b.getSecond(); i2++) {
-                if (i == i2) { return true;  }
+                if (i == i2) {
+                    return true;
+                }
             }
         }
         return false;

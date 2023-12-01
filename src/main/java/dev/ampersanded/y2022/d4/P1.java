@@ -2,11 +2,8 @@ package dev.ampersanded.y2022.d4;
 
 import dev.ampersanded.lib.AdventChallenge;
 import dev.ampersanded.lib.Pair;
-import dev.ampersanded.lib.Utils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class P1 extends AdventChallenge {
     @Override

@@ -2,7 +2,8 @@ package dev.ampersanded.y2022.d7;
 
 import dev.ampersanded.lib.AdventChallenge;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class P1 extends AdventChallenge {
     private final ArrayList<String> currentPath = new ArrayList<>();
@@ -26,7 +27,6 @@ public class P1 extends AdventChallenge {
             addDirSize(String.join("/", currentPath), Integer.parseInt(lineSplit[0]));
         }
 
-        
 
         return dirSizes.toString();
     }

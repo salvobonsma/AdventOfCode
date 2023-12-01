@@ -6,8 +6,6 @@ import dev.ampersanded.lib.Pair;
 import java.util.ArrayList;
 
 public class P2 extends AdventChallenge {
-     private String[] alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
-
     @Override
     public String solve() {
         String[] lines = input.split("\n");
@@ -59,16 +57,6 @@ public class P2 extends AdventChallenge {
         }
 
         return total + "";
-    }
-
-    private String removeLetters(String string) {
-        String[] alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
-
-        for (String letter : alphabet) {
-            string = string.replace(letter, "");
-        }
-
-        return string.charAt(0) + string.substring(string.length() - 1);
     }
 
     private boolean isNum(String s) {

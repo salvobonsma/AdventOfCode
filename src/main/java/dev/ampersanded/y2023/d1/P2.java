@@ -13,6 +13,7 @@ public class P2 extends AdventChallenge {
         int total = 0;
 
         for (String line : lines) {
+            // Should be a HashMap
             ArrayList<Pair<String, Integer>> numberLocation = new ArrayList<>();
 
             for (int i = 0; i < line.length(); i++) {
@@ -21,6 +22,7 @@ public class P2 extends AdventChallenge {
                 }
             }
 
+            // Better ways to do this
             if (line.contains("one")) { numberLocation.add(Pair.of("1", line.indexOf("one"))); }
             if (line.contains("two")) { numberLocation.add(Pair.of("2", line.indexOf("two"))); }
             if (line.contains("three")) { numberLocation.add(Pair.of("3", line.indexOf("three"))); }
@@ -30,7 +32,6 @@ public class P2 extends AdventChallenge {
             if (line.contains("seven")) { numberLocation.add(Pair.of("7", line.indexOf("seven"))); }
             if (line.contains("eight")) { numberLocation.add(Pair.of("8", line.indexOf("eight"))); }
             if (line.contains("nine")) { numberLocation.add(Pair.of("9", line.indexOf("nine"))); }
-
             if (line.contains("one")) { numberLocation.add(Pair.of("1", line.lastIndexOf("one"))); }
             if (line.contains("two")) { numberLocation.add(Pair.of("2", line.lastIndexOf("two"))); }
             if (line.contains("three")) { numberLocation.add(Pair.of("3", line.lastIndexOf("three"))); }
@@ -60,6 +61,7 @@ public class P2 extends AdventChallenge {
     }
 
     private boolean isNum(String s) {
+        // Running a try statement on every character is inefficient
         try {
             int a = Integer.parseInt(s);
         } catch (NumberFormatException e) {

@@ -10,11 +10,9 @@ public class P2 extends AdventChallenge {
         String[] games = input.split("\n");
         int total = 0;
 
-        for (int i = 0; i < games.length; i++) {
-            String game = games[i].split(":")[1];
+        for (String line : games) {
+            String game = line.split(":")[1];
             String[] sets = game.split(";");
-
-            boolean ok = true;
 
             ArrayList<Integer> reds = new ArrayList<>();
             ArrayList<Integer> greens = new ArrayList<>();
@@ -33,11 +31,11 @@ public class P2 extends AdventChallenge {
                     if (revealSplit[1].equals("red")) {
                         red += Integer.parseInt(revealSplit[0]);
                     }
-                    if (revealSplit[1].equals("blue")) {
-                        blue += Integer.parseInt(revealSplit[0]);
-                    }
                     if (revealSplit[1].equals("green")) {
                         green += Integer.parseInt(revealSplit[0]);
+                    }
+                    if (revealSplit[1].equals("blue")) {
+                        blue += Integer.parseInt(revealSplit[0]);
                     }
                 }
 
@@ -46,7 +44,7 @@ public class P2 extends AdventChallenge {
                 blues.add(blue);
             }
 
-            total += findLargest(reds) * findLargest(blues) * findLargest(greens);
+            total += findLargest(reds) * findLargest(greens) * findLargest(blues);
         }
 
         return total + "";

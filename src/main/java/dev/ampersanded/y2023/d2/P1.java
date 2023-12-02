@@ -18,8 +18,8 @@ public class P1 extends AdventChallenge {
                 set = set.replaceFirst(" ", "");
 
                 int red = 0;
-                int blue = 0;
                 int green = 0;
+                int blue = 0;
 
                 for (String reveal : set.split(", ")) {
                     String[] revealSplit = reveal.split(" ");
@@ -27,11 +27,11 @@ public class P1 extends AdventChallenge {
                     if (revealSplit[1].equals("red")) {
                         red += Integer.parseInt(revealSplit[0]);
                     }
-                    if (revealSplit[1].equals("blue")) {
-                        blue += Integer.parseInt(revealSplit[0]);
-                    }
                     if (revealSplit[1].equals("green")) {
                         green += Integer.parseInt(revealSplit[0]);
+                    }
+                    if (revealSplit[1].equals("blue")) {
+                        blue += Integer.parseInt(revealSplit[0]);
                     }
                 }
 

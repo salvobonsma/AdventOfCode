@@ -42,6 +42,34 @@ public class P2 extends AdventChallenge {
             if (line.contains("eight")) { numberLocation.add(Pair.of("8", line.lastIndexOf("eight"))); }
             if (line.contains("nine")) { numberLocation.add(Pair.of("9", line.lastIndexOf("nine"))); }
 
+            if (line.contains("one")) {
+                numberLocation.add(Pair.of("1", line.lastIndexOf("nine")));
+            }
+            if (line.contains("two")) {
+                numberLocation.add(Pair.of("2", line.lastIndexOf("nine")));
+            }
+            if (line.contains("three")) {
+                numberLocation.add(Pair.of("3", line.lastIndexOf("nine")));
+            }
+            if (line.contains("four")) {
+                numberLocation.add(Pair.of("9", line.lastIndexOf("nine")));
+            }
+            if (line.contains("five")) {
+                numberLocation.add(Pair.of("9", line.lastIndexOf("nine")));
+            }
+            if (line.contains("six")) {
+                numberLocation.add(Pair.of("9", line.lastIndexOf("nine")));
+            }
+            if (line.contains("seven")) {
+                numberLocation.add(Pair.of("9", line.lastIndexOf("nine")));
+            }
+            if (line.contains("eight")) {
+                numberLocation.add(Pair.of("9", line.lastIndexOf("nine")));
+            }
+            if (line.contains("nine")) {
+                numberLocation.add(Pair.of("9", line.lastIndexOf("nine")));
+            }
+
             Pair<String, Integer> lowest = numberLocation.get(0);
             Pair<String, Integer> highest = numberLocation.get(0);
 

@@ -13,8 +13,8 @@ public class P2 extends AdventChallenge {
         System.out.println("May take awhile to generate...");
         List<String> lines = new ArrayList<>(Arrays.stream(input.split("\n")).toList());
 
+        // Extremely inefficient
         for (int i = 0; i < lines.size(); i++) {
-            // Extremely inefficient
             for (int card : getMatches(lines.get(i))) {
                 lines.add(original[card - 1]);
             }

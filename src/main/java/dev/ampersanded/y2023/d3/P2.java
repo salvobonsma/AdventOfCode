@@ -48,6 +48,7 @@ public class P2 extends AdventChallenge {
 
             for (NumberData numberLocation : numberLocations) {
                 for (int i = numberLocation.x; i < numberLocation.x + numberLocation.length; i++) {
+                    // Would be better to not do this even though that this is efficient
                     if (gear.getFirst() == i + 1 && gear.getSecond() == numberLocation.y + 1) {
                         gearRatios.add(numberLocation.number);
                         break;
@@ -94,53 +95,6 @@ public class P2 extends AdventChallenge {
         return total + "";
     }
 
-    private String totalFromNum(String line, String number, String[] lines, int i, int indexOfNum) {
-        int length = number.length();
-
-        //below
-        if (i != lines.length - 1) {
-            for (int k = indexOfNum - 1; k < indexOfNum + length + 1; k++) {
-                if (isSymbolAtIndex(lines[i + 1], k)) {
-                    return number;
-                }
-            }
-        }
-
-        //above
-        if (i != 0) {
-            for (int k = indexOfNum - 1; k < indexOfNum + length + 1; k++) {
-                if (isSymbolAtIndex(lines[i - 1], k)) {
-                    return number;
-                }
-            }
-        }
-
-        if (line.indexOf(number) != line.lastIndexOf(number)) {
-            //System.out.println("noooo");
-        }
-
-        if (isSymbolAtIndex(line, indexOfNum + length)) {
-            return number;
-        }
-        if (isSymbolAtIndex(line, indexOfNum - 1)) {
-            return number;
-        }
-
-        return "0";
-    }
-
-    private String removeNonNumbers(String input) {
-        StringBuilder output = new StringBuilder();
-
-        for (String letter : input.split("")) {
-            if (isNum(letter)) {
-                output.append(letter);
-            }
-        }
-
-        return output.toString();
-    }
-
     private String symbolsToPeriods(String input) {
         StringBuilder output = new StringBuilder();
 
@@ -163,11 +117,7 @@ public class P2 extends AdventChallenge {
             return false;
         }
 
-        if (isNum(letter) || letter.equals(".")) {
-            return false;
-        }
-
-        return true;
+        return !isNum(letter) && !letter.equals(".");
     }
 
     private boolean isNum(String s) {
@@ -178,5 +128,24 @@ public class P2 extends AdventChallenge {
             return false;
         }
         return true;
+    }
+
+    static class NumberData {
+        int x;
+        int y;
+        int length;
+        String number;
+
+        public NumberData(int x, int y, int length, String number) {
+            this.x = x;
+            this.y = y;
+            this.length = length;
+            this.number = number;
+        }
+
+        @Override
+        public String toString() {
+            return String.format("(x: %d, y: %d, number: %s)", x, y, number);
+        }
     }
 }

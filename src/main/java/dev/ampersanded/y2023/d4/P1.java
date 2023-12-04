@@ -50,6 +50,4 @@ public class P1 extends AdventChallenge {
 
         return output;
     }
-
-
 }

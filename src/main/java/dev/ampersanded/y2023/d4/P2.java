@@ -10,9 +10,11 @@ public class P2 extends AdventChallenge {
     @Override
     public String solve() {
         String[] original = input.split("\n");
+        System.out.println("May take awhile to generate...");
         List<String> lines = new ArrayList<>(Arrays.stream(input.split("\n")).toList());
 
         for (int i = 0; i < lines.size(); i++) {
+            // Extremely inefficient
             for (int card : getCopies(lines.get(i))) {
                 lines.add(original[card - 1]);
             }

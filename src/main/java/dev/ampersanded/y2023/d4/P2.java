@@ -15,7 +15,7 @@ public class P2 extends AdventChallenge {
 
         for (int i = 0; i < lines.size(); i++) {
             // Extremely inefficient
-            for (int card : getCopies(lines.get(i))) {
+            for (int card : getMatches(lines.get(i))) {
                 lines.add(original[card - 1]);
             }
         }
@@ -23,7 +23,7 @@ public class P2 extends AdventChallenge {
         return lines.size() + "";
     }
 
-    private ArrayList<Integer> getCopies(String line) {
+    private ArrayList<Integer> getMatches(String line) {
         int card = Integer.parseInt(line.split(":")[0].split(" ")[line.split(":")[0].split(" ").length - 1]);
         line = line.split(": ")[1];
         String[] lineSplit = line.split(" \\| ");

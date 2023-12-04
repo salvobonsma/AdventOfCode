@@ -25,10 +25,6 @@ public class P1 extends AdventChallenge {
                     continue;
                 }
 
-                if (Integer.parseInt(totalFromNum(line, number, lines, i, indexOfNum)) != 0) {
-                    System.out.println(Integer.parseInt(totalFromNum(line, number, lines, i, indexOfNum)) + " " + number);
-                }
-
                 total += Integer.parseInt(totalFromNum(line, number, lines, i, indexOfNum));
             }
         }
@@ -55,10 +51,6 @@ public class P1 extends AdventChallenge {
                     return number;
                 }
             }
-        }
-
-        if (line.indexOf(number) != line.lastIndexOf(number)) {
-            //System.out.println("noooo");
         }
 
         if (isSymbolAtIndex(line, indexOfNum + length)) {
@@ -105,11 +97,7 @@ public class P1 extends AdventChallenge {
             return false;
         }
 
-        if (isNum(letter) || letter.equals(".")) {
-            return false;
-        }
-
-        return true;
+        return !isNum(letter) && !letter.equals(".");
     }
 
     private boolean isNum(String s) {

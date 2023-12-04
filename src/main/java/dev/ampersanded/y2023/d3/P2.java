@@ -109,17 +109,6 @@ public class P2 extends AdventChallenge {
         return output.toString();
     }
 
-    private boolean isSymbolAtIndex(String input, int i) {
-        String letter = null;
-        try {
-            letter = input.split("")[i];
-        } catch (Exception e) {
-            return false;
-        }
-
-        return !isNum(letter) && !letter.equals(".");
-    }
-
     private boolean isNum(String s) {
         // Running a try statement on every character is inefficient
         try {

@@ -31,8 +31,6 @@ public class P1 extends AdventChallenge {
                 totalForLine *= 2;
             }
 
-            System.out.println(totalForLine);
-
             total += totalForLine;
         }
 

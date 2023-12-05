@@ -10,6 +10,7 @@ public class P1 extends AdventChallenge {
     public String solve() {
         String[] sections = input.split("\n\n");
 
+        // Uses less heap if I calculate the seed and didn't put it in an array.
         ArrayList<Long> seeds = new ArrayList<>();
         for (String seed : sections[0].split(": ")[1].split(" ")) {
             seeds.add(Long.parseLong(seed));

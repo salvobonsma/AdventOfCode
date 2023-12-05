@@ -9,6 +9,7 @@ public class P2 extends AdventChallenge {
     @Override
     public String solve() {
         String[] sections = input.split("\n\n");
+        System.out.println("May take awhile to generate...");
 
         long lowest = -1;
 
@@ -17,9 +18,10 @@ public class P2 extends AdventChallenge {
             maps.add(textToMap(sections[i]));
         }
 
+        // Extreme brute force, took my M2 mac eight minutes to process.
         String[] seedsSplit = sections[0].split(": ")[1].split(" ");
         for (int i = 0; i < seedsSplit.length; i += 2) {
-            System.out.println(seedsSplit[i]);
+            System.out.printf("Range %d/%d%n", i / 2 + 1, seedsSplit.length / 2);
             long a = Long.parseLong(seedsSplit[i]);
             long b = Long.parseLong(seedsSplit[i + 1]);
             for (long j = a; j < a + b; j++) {

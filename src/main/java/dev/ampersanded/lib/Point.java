@@ -14,6 +14,14 @@ public class Point {
         point = Pair.of(x, y);
     }
 
+    public Point(Point point) {
+        this.point = Pair.of(point.getX(), point.getY());
+    }
+
+    public boolean equals(Point point) {
+        return getX() == point.getX() && getY() == point.getY();
+    }
+
     public int getX() {
         return point.getFirst();
     }
@@ -52,5 +60,10 @@ public class Point {
 
     public void set(int x, int y) {
         point = Pair.of(x, y);
+    }
+
+    @Override
+    public String toString() {
+        return String.format("(%d, %d)", getX(), getY());
     }
 }

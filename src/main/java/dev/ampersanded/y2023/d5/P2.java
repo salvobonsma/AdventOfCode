@@ -18,7 +18,7 @@ public class P2 extends AdventChallenge {
             maps.add(textToMap(sections[i]));
         }
 
-        // Extreme brute force, took my M2 mac eight minutes to process.
+        // Extreme brute force, took my M2 mac took eight minutes to process.
         String[] seedsSplit = sections[0].split(": ")[1].split(" ");
         for (int i = 0; i < seedsSplit.length; i += 2) {
             System.out.printf("Range %d/%d%n", i / 2 + 1, seedsSplit.length / 2);

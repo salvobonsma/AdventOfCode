@@ -11,6 +11,7 @@ public class P2 extends AdventChallenge {
         String[] sections = input.split("\n\n");
         System.out.println("May take awhile to generate...");
 
+        long totalSeeds = 0;
         long lowest = -1;
 
         ArrayList<ArrayList<Tri<Long, Long, Long>>> maps = new ArrayList<>();
@@ -18,12 +19,14 @@ public class P2 extends AdventChallenge {
             maps.add(textToMap(sections[i]));
         }
 
-        // Extreme brute force, took my M2 mac took eight minutes to process.
+        // Extreme brute force, took my M2 mac took eight minutes to process with my input.
         String[] seedsSplit = sections[0].split(": ")[1].split(" ");
         for (int i = 0; i < seedsSplit.length; i += 2) {
             System.out.printf("Range %d/%d%n", i / 2 + 1, seedsSplit.length / 2);
             long a = Long.parseLong(seedsSplit[i]);
             long b = Long.parseLong(seedsSplit[i + 1]);
+
+            totalSeeds += b;
             for (long j = a; j < a + b; j++) {
                 long seed = j;
 
@@ -39,7 +42,8 @@ public class P2 extends AdventChallenge {
             }
         }
 
-        return lowest + "";
+        System.out.println("Total Seeds: " + totalSeeds);
+        return "Solution: " + lowest;
     }
 
     private long destinationToSource(long destination, ArrayList<Tri<Long, Long, Long>> map) {

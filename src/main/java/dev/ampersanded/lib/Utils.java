@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Utils {
+    public static final String[] alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+    public static final String[] vowels = "aeiou".split("");
+
     public static ArrayList<Integer> orderLargestToSmallest(ArrayList<Integer> input) {
         input.sort(Collections.reverseOrder());
         return input;

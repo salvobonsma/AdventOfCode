@@ -6,44 +6,39 @@ import dev.ampersanded.lib.Tri;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class P2 extends AdventChallenge {
     String[] cards = "J23456789TQKA".split("");
 
     @Override
     public String solve() {
-        // hand, bid
-        HashMap<String, Integer> hands = new HashMap<>();
-        for (String line : input.split("\n")) {
-            hands.put(line.split(" ")[0], Integer.valueOf(line.split(" ")[1]));
-        }
-
         // hand, type, bid
-        ArrayList<Tri<String, Type, Integer>> orderedHands = new ArrayList<>();
-        for (Map.Entry<String, Integer> hand : hands.entrySet()) {
-            Type type = getTypeWithJAsWildcard(hand.getKey());
-            orderedHands.add(Tri.of(hand.getKey(), type, hand.getValue()));
+        ArrayList<Tri<String, Type, Integer>> hands = new ArrayList<>();
+        for (int i = 0; i < input.split("\n").length; i++) {
+            String[] lineSplit = input.split("\n")[i].split(" ");
+            Type type = getTypeWithJAsWildcard(lineSplit[0]);
+            hands.add(Tri.of(lineSplit[0], type, Integer.parseInt(lineSplit[1])));
         }
 
-        orderedHands.sort((pair1, pair2) -> {
-            int typeComparison = Integer.compare(pair1.getSecond().power, pair2.getSecond().power);
-            return typeComparison == 0 ? compareCardPowers(pair1.getFirst(), pair2.getFirst()) : typeComparison;
+        hands.sort((triA, triB) -> {
+            int typeComparison = Integer.compare(triA.getSecond().power, triB.getSecond().power);
+            return typeComparison == 0 ? compareCardPowers(triA.getFirst(), triB.getFirst()) : typeComparison;
         });
 
         int total = 0;
-
-        for (int i = 0; i < orderedHands.size(); i++) {
-            total += (i + 1) * orderedHands.get(i).getThird();
+        for (int i = 0; i < hands.size(); i++) {
+            total += (i + 1) * hands.get(i).getThird();
         }
 
         return total + "";
     }
 
-    private int compareCardPowers(String hand1, String hand2) {
-        for (int i = 0; i < hand1.length(); i++) {
-            int powerComparison = Integer.compare(cardPower(String.valueOf(hand1.charAt(i))),
-                    cardPower(String.valueOf(hand2.charAt(i))));
+    private int compareCardPowers(String handA, String handB) {
+        for (int i = 0; i < handA.length(); i++) {
+            int powerComparison = Integer.compare(
+                    cardPower(handA.split("")[i]),
+                    cardPower(handB.split("")[i])
+            );
             if (powerComparison != 0) {
                 return powerComparison;
             }
@@ -53,6 +48,7 @@ public class P2 extends AdventChallenge {
     }
 
     private Type getTypeWithJAsWildcard(String input) {
+        // May not be the best way of going about this.
         Type bestType = Type.HIGH_CARD;
 
         for (String card : cards) {
@@ -67,7 +63,6 @@ public class P2 extends AdventChallenge {
     private Type getType(String input) {
         // card, repeats
         HashMap<String, Integer> repeats = new HashMap<>();
-
         for (String card : input.split("")) {
             if (!repeats.containsKey(card)) {
                 repeats.put(card, 1);
@@ -105,22 +100,13 @@ public class P2 extends AdventChallenge {
     }
 
     private int cardPower(String input) {
-        return switch (input) {
-            case "J" -> 1;
-            case "2" -> 2;
-            case "3" -> 3;
-            case "4" -> 4;
-            case "5" -> 5;
-            case "6" -> 6;
-            case "7" -> 7;
-            case "8" -> 8;
-            case "9" -> 9;
-            case "T" -> 10;
-            case "Q" -> 11;
-            case "K" -> 12;
-            case "A" -> 13;
-            default -> throw new IllegalStateException("Unexpected value: " + input);
-        };
+        for (int i = 0; i < cards.length; i++) {
+            if (input.equals(cards[i])) {
+                return i;
+            }
+        }
+
+        return 0;
     }
 
     enum Type {

@@ -13,7 +13,7 @@ public class P2 extends AdventChallenge {
         int total = 0;
         for (long i = 0; i <= duration; i++) {
             if ((duration - i) * i > record) {
-                total += 1;
+                total++;
             }
         }
 

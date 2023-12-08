@@ -7,6 +7,22 @@ public class Utils {
     public static final String[] alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
     public static final String[] vowels = "aeiou".split("");
 
+    public static long lcm(long i, long y) {
+        if (i == 0 || y == 0) {
+            return 0;
+        }
+        return (i * y) / gcd(i, y);
+    }
+
+    public static long gcd(long i, long y) {
+        while (y != 0) {
+            long temp = y;
+            y = i % y;
+            i = temp;
+        }
+        return i;
+    }
+
     public static ArrayList<Integer> orderLargestToSmallest(ArrayList<Integer> input) {
         input.sort(Collections.reverseOrder());
         return input;

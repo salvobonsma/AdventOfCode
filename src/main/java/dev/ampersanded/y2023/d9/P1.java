@@ -3,6 +3,7 @@ package dev.ampersanded.y2023.d9;
 import dev.ampersanded.lib.AdventChallenge;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class P1 extends AdventChallenge {
     @Override
@@ -61,7 +62,7 @@ public class P1 extends AdventChallenge {
     }
 
     private boolean listAllZero(ArrayList<Integer> input) {
-        return input.stream().reduce(Integer::sum).orElse(-1).equals(0);
+        return input.stream().reduce(Integer::sum).equals(Optional.of(0));
     }
 
     private int getLast(ArrayList<Integer> input) {

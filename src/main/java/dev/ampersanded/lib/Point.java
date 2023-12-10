@@ -62,6 +62,14 @@ public class Point {
         point = Pair.of(x, y);
     }
 
+    public boolean isAdjacent(Point otherPoint) {
+        return Math.abs(getX() - otherPoint.getX()) + Math.abs(getY() - otherPoint.getY()) == 1;
+    }
+
+    public boolean isOneAway(Point otherPoint) {
+        return (Math.abs(getX() - otherPoint.getX()) + Math.abs(getY() - otherPoint.getY())) == 1;
+    }
+
     @Override
     public String toString() {
         return String.format("(%d, %d)", getX(), getY());

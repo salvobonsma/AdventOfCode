@@ -70,6 +70,10 @@ public class Point {
         return (Math.abs(getX() - otherPoint.getX()) + Math.abs(getY() - otherPoint.getY())) == 1;
     }
 
+    public int distance(Point otherPoint) {
+        return Math.abs(getX() - otherPoint.getX()) + Math.abs(getY() - otherPoint.getY());
+    }
+
     @Override
     public String toString() {
         return String.format("(%d, %d)", getX(), getY());

@@ -43,9 +43,6 @@ public class P2 extends AdventChallenge {
             }
         }
 
-        String expandedInput = String.join("\n", expandedInputLines);
-        System.out.println(expandedInput);
-
         ArrayList<Point> galaxies = new ArrayList<>();
         for (int y = 0; y < expandedInputLines.size(); y++) {
             for (int x = 0; x < expandedInputLines.get(y).split("").length; x++) {
